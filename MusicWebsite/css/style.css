@@ -1,0 +1,223 @@
+* {
+  cursor: default;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #4161cf;
+}
+
+.music-section {
+  margin: 100px auto 0 auto;
+  text-align: center;
+}
+
+.music-section .song-image-container .song-image {
+  width: 300px;
+  border-radius: 10px;
+  -webkit-animation: pictureMorph 60s linear infinite;
+          animation: pictureMorph 60s linear infinite;
+}
+
+.music-section .song-name-container .song-name {
+  padding: 10px 0 0 0;
+  font-size: 24px;
+  color: #1a1a1b;
+}
+
+.music-section .song-name-container .song-artist {
+  color: #2a2b35;
+}
+
+.music-section .song-length-container div {
+  margin: 10px auto 0 auto;
+  height: 10px;
+  width: 250px;
+  background: #c2c2c9;
+  border-radius: 3px;
+}
+
+.music-section .song-length-container div .bar {
+  border-radius: 3px;
+  margin: 0 0 0 -1px;
+  height: 10px;
+  width: 0px;
+  background: #49499e;
+}
+
+.music-section .icons-container i {
+  color: #192d4b;
+  margin: 10px 10px 0 10px;
+}
+
+.music-section .icons-container .icon {
+  font-size: 1.45em;
+}
+
+.music-section .icons-container .play-icon {
+  font-size: 1.55em;
+}
+
+.music-section .icons-container .thumbsUp, .music-section .icons-container .thumbsDown {
+  font-size: 1.15em;
+  padding: 8px;
+  border-radius: 50%;
+  -webkit-transition: all .3s;
+  transition: all .3s;
+}
+
+.music-section .icons-container .thumbsUp:hover, .music-section .icons-container .thumbsDown:hover {
+  background: rgba(25, 45, 75, 0.2);
+}
+
+.options-section {
+  margin-top: 6vw;
+}
+
+.options-section .options-container .option {
+  margin-top: 5px;
+}
+
+.options-section .options-container .option h3 {
+  margin: 0 auto;
+  width: 160px;
+  text-align: center;
+  color: #f1f3f7;
+  padding: 3px;
+  border-radius: 0px 15px;
+  -webkit-transition: all ease .7s;
+  transition: all ease .7s;
+}
+
+.options-section .options-container .option h3:hover {
+  border-radius: 15px 0px;
+  background: #4970e6;
+}
+
+.options-section .options-container .option #songAuthorsUl {
+  width: 150px;
+  margin: 0 auto;
+  border-radius: 10px;
+}
+
+.options-section .options-container .option #songAuthorsUl li {
+  pointer-events: none;
+  -webkit-transform: translateY(-90%);
+          transform: translateY(-90%);
+  opacity: 0;
+  margin: 5px auto;
+  text-align: center;
+  color: white;
+  font-size: 17px;
+  width: 120px;
+  height: 20px;
+  padding: 5px 10px;
+  border-radius: 5px;
+  -webkit-transition: all .5s;
+  transition: all .5s;
+}
+
+.options-section .options-container .option #songAuthorsUl li:hover {
+  background: rgba(73, 73, 158, 0.5);
+}
+
+@-webkit-keyframes transitionIn {
+  from {
+    opacity: 0;
+    -webkit-transform: translateY(-100%);
+            transform: translateY(-100%);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: translateY(0%);
+            transform: translateY(0%);
+  }
+}
+
+@keyframes transitionIn {
+  from {
+    opacity: 0;
+    -webkit-transform: translateY(-100%);
+            transform: translateY(-100%);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: translateY(0%);
+            transform: translateY(0%);
+  }
+}
+
+@-webkit-keyframes pictureMorph {
+  0% {
+    border-radius: 29% 47% 26% 49% / 37% 51% 20% 25%;
+  }
+  40% {
+    border-radius: 36% 52% 35% 34% / 50% 61% 18% 34%;
+  }
+  20% {
+    border-radius: 61% 41% 55% 28% / 76% 54% 32% 41%;
+  }
+  30% {
+    border-radius: 90% 34% 65% 28% / 86% 44% 42% 21%;
+  }
+  40% {
+    border-radius: 86% 26% 55% 48% / 74% 61% 38% 74%;
+  }
+  50% {
+    border-radius: 73% 36% 40% 57% / 55% 53% 26% 81%;
+  }
+  60% {
+    border-radius: 60% 44% 35% 65% / 33% 37% 15% 45%;
+  }
+  70% {
+    border-radius: 46% 52% 25% 48% / 54% 61% 10% 34%;
+  }
+  80% {
+    border-radius: 90% 51% 35% 28% / 79% 54% 24% 41%;
+  }
+  90% {
+    border-radius: 51% 51% 65% 28% / 79% 44% 32% 31%;
+  }
+  100% {
+    border-radius: 29% 47% 26% 49% / 37% 51% 20% 25%;
+  }
+}
+
+@keyframes pictureMorph {
+  0% {
+    border-radius: 29% 47% 26% 49% / 37% 51% 20% 25%;
+  }
+  40% {
+    border-radius: 36% 52% 35% 34% / 50% 61% 18% 34%;
+  }
+  20% {
+    border-radius: 61% 41% 55% 28% / 76% 54% 32% 41%;
+  }
+  30% {
+    border-radius: 90% 34% 65% 28% / 86% 44% 42% 21%;
+  }
+  40% {
+    border-radius: 86% 26% 55% 48% / 74% 61% 38% 74%;
+  }
+  50% {
+    border-radius: 73% 36% 40% 57% / 55% 53% 26% 81%;
+  }
+  60% {
+    border-radius: 60% 44% 35% 65% / 33% 37% 15% 45%;
+  }
+  70% {
+    border-radius: 46% 52% 25% 48% / 54% 61% 10% 34%;
+  }
+  80% {
+    border-radius: 90% 51% 35% 28% / 79% 54% 24% 41%;
+  }
+  90% {
+    border-radius: 51% 51% 65% 28% / 79% 44% 32% 31%;
+  }
+  100% {
+    border-radius: 29% 47% 26% 49% / 37% 51% 20% 25%;
+  }
+}
+/*# sourceMappingURL=style.css.map */

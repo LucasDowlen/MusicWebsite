@@ -534,5 +534,3 @@ let setIconToPause = () => {
 } 
 
 window.onload = startWebsite;
-
-//just dummy text;

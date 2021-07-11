@@ -1,0 +1,314 @@
+@import url('https://fonts.googleapis.com/css2?family=Festive&display=swap');
+$unusedColor: rgb(73, 112, 230);
+
+*{
+    cursor: default;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    h1{
+        margin: 0.4em 0 0 0;
+        font-family: 'Festive', cursive;
+        font-size: 2.6em;
+        color: white;
+        text-align: center;
+    }
+}
+
+body{
+    background: rgb(65, 207, 188);
+
+    #all-sections{
+
+        display: flex;
+
+        div{
+            width: calc(100vw / 3);
+        }
+
+        #left-section{
+
+
+            margin-top: 4vw;
+
+            ul{
+
+                // margin: 8vw 0 0 6vw;
+
+                margin-left: 6vw;
+
+                li{
+                    display: flex;
+
+                    // height: 4vw;
+                    padding: 0.5vw;
+                    width: 18vw;
+                    background: rgb(131, 209, 170);
+                    transition: all 0.8s;
+                    h2{
+                        padding: 1vw;
+                        font-size: 1.4vw;
+                        color: white;
+
+                        white-space: nowrap;
+                        width: 10.5vw;
+                        // height: 1.5vw;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                    }
+
+                    img{
+
+                        margin: auto 0;
+
+                        width: 3vw;
+                        height: 3vw;
+                    }
+                }
+            }
+        }
+    
+        #middle-section{
+            .music-section{
+                margin: 5em auto 0 auto;
+                text-align: center;
+                .song-image-container{
+            
+                    .song-image{
+                        width: 300px;
+                        border-radius: 10px;
+            
+                        animation: pictureMorph 60s linear infinite;
+                    }
+                }
+            
+                .song-name-container{
+                    .song-name{
+                        padding: 10px 0 0 0;
+                        font-size: 24px;
+                        color:rgb(26, 27, 26);
+                    }
+                    
+                    .song-artist{
+                        color:rgb(42, 53, 53);
+                    }
+                }
+            
+                .song-length-container{
+                    div{
+                        margin: 10px auto 0 auto;
+                        height: 10px;
+                        width: 250px;
+                        background:rgb(164, 252, 222);
+                        border-radius: 3px;
+            
+                        .bar{
+                            border-radius: 3px;
+                            margin: 0 0 0 -1px;
+                            height: 10px;
+                            width: 0px;
+                            background: rgb(73, 158, 140);
+                        }
+                    }
+                }
+            
+                .icons-container{
+            
+                    i{
+                        color: rgb(25, 75, 44);
+                        margin: 10px 10px 0 10px;
+                    }
+            
+                    .icon{
+                        font-size: 1.45em;
+                    }
+            
+                    .play-icon{
+                        font-size: 1.55em;
+                    }
+            
+                    .thumbsUp, .thumbsDown{
+                        font-size: 1.15em;
+                        padding: 8px;
+                        border-radius: 50%;
+                        transition: all .3s;
+                    }
+            
+                    .thumbsUp:hover, .thumbsDown:hover{
+                        background: rgba(25, 75, 52, 0.2);
+                        // background: rgb(61, 121, 81);
+                    }
+                }
+            }
+            
+            .options-section{
+            
+                margin-top: 4em;
+            
+                .options-container{
+            
+                    .option{
+            
+                        margin-top: 5px;
+            
+                        h3{
+                            margin: 0 auto;
+                            width: 160px;
+                            text-align: center;
+                            color: rgb(241, 243, 247);
+                            padding: 3px;
+                            border-radius: 0px 15px;
+                            transition: all ease .7s;
+                        }
+            
+                        h3:hover{
+                            border-radius: 15px 0px;
+                            background: rgba(61, 187, 103, 0.5);
+                            // background:rgba(73, 158, 111, 0.6);
+                        }
+            
+                        // #songAuthorsUl{
+            
+                        //     width: 150px;
+                        
+                        //     margin: 0 auto;
+                            
+                        //     border-radius: 10px;
+            
+                        //     li{
+                        //         pointer-events: none;
+                        //         transform: translateY(-90%);
+                        //         opacity: 0;
+                        //         margin: 5px auto;
+                        //         text-align: center;
+            
+                        //         color: white;
+                        //         font-size: 17px;
+                        //         width: 120px;
+                        //         height: 20px;
+                        //         padding: 5px 10px;
+                        //         border-radius: 5px;
+            
+                        //         transition: all .5s;
+                        //     }
+            
+                        //     li:hover{
+                        //         background:rgba(73, 73, 158, .5);
+                        //     }
+                        // }
+                    }
+                }
+            }
+            
+            #songAuthorsUl{
+            
+                // width: 150px;
+                padding-top: 2vh; //to add buffer on top of first listed child
+            
+                pointer-events: none;
+                opacity: 0;
+                transform: translateY(-5%);
+                position: absolute;
+                background: rgb(53, 146, 95);
+                height: 70%;
+                width: 80vw;
+            
+                top: 0;
+                bottom: 7vh;
+                left: 0;
+                right: 0;
+            
+                margin: auto;
+                
+                border-radius: 10px;
+            
+                transition: all .5s;
+            
+                li{
+                    
+                    // position: relative;
+                    // transform: translateY(-90%);
+                    width: 120px;
+                    height: 20px;
+                    padding: 5px 10px;
+            
+                    // opacity: 0;
+            
+                    margin: 5px auto;
+                    text-align: center;
+                    pointer-events: none;
+                    color: white;
+                    font-size: 17px;
+                    border-radius: 5px;
+            
+                    transition: all .5s;
+                }
+            
+                li:hover{
+                    // background:rgba(73, 73, 158, .5);
+                    // background:rgba(53, 44, 26, 0.5);
+                    background: rgb(56, 112, 75);
+                }
+            }
+        }
+    }
+}
+
+@keyframes shiftLeftSection{
+    from{
+        transform: translateY(0%);
+    }
+
+    to{
+        transform: translateY(100%);
+    }
+}
+
+@keyframes pictureMorph{
+    0%{
+        border-radius: 29% 47% 26% 49% / 37% 51% 20% 25%;
+    }
+
+    40%{
+        border-radius: 36% 52% 35% 34% / 50% 61% 18% 34%;
+    }
+
+    20%{
+        border-radius: 61% 41% 55% 28% / 76% 54% 32% 41%
+    }
+
+    30%{
+        border-radius: 90% 34% 65% 28% / 86% 44% 42% 21%
+    }
+
+    40%{
+        border-radius: 86% 26% 55% 48% / 74% 61% 38% 74%;
+    }
+
+    50%{
+        border-radius: 73% 36% 40% 57% / 55% 53% 26% 81%;
+    }
+
+    60%{
+        border-radius: 60% 44% 35% 65% / 33% 37% 15% 45%;
+    }
+
+    70%{
+        border-radius: 46% 52% 25% 48% / 54% 61% 10% 34%;
+    }
+
+    80%{
+        border-radius: 90% 51% 35% 28% / 79% 54% 24% 41%
+    }
+
+    90%{
+        border-radius: 51% 51% 65% 28% / 79% 44% 32% 31%
+    }
+
+    100%{
+        border-radius: 29% 47% 26% 49% / 37% 51% 20% 25%;
+    }
+}

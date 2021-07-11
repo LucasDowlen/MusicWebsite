@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Festive&display=swap");
 * {
   cursor: default;
   list-style-type: none;
@@ -5,62 +6,115 @@
   padding: 0;
 }
 
-body {
-  background: #4161cf;
-}
-
-.music-section {
-  margin: 100px auto 0 auto;
+header h1 {
+  margin: 0.4em 0 0 0;
+  font-family: 'Festive', cursive;
+  font-size: 2.6em;
+  color: white;
   text-align: center;
 }
 
-.music-section .song-image-container .song-image {
+body {
+  background: #41cfbc;
+}
+
+body #all-sections {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+body #all-sections div {
+  width: calc(100vw / 3);
+}
+
+body #all-sections #left-section {
+  margin-top: 4vw;
+}
+
+body #all-sections #left-section ul {
+  margin-left: 6vw;
+}
+
+body #all-sections #left-section ul li {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 0.5vw;
+  width: 18vw;
+  background: #83d1aa;
+  -webkit-transition: all 0.8s;
+  transition: all 0.8s;
+}
+
+body #all-sections #left-section ul li h2 {
+  padding: 1vw;
+  font-size: 1.4vw;
+  color: white;
+  white-space: nowrap;
+  width: 10.5vw;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+body #all-sections #left-section ul li img {
+  margin: auto 0;
+  width: 3vw;
+  height: 3vw;
+}
+
+body #all-sections #middle-section .music-section {
+  margin: 5em auto 0 auto;
+  text-align: center;
+}
+
+body #all-sections #middle-section .music-section .song-image-container .song-image {
   width: 300px;
   border-radius: 10px;
   -webkit-animation: pictureMorph 60s linear infinite;
           animation: pictureMorph 60s linear infinite;
 }
 
-.music-section .song-name-container .song-name {
+body #all-sections #middle-section .music-section .song-name-container .song-name {
   padding: 10px 0 0 0;
   font-size: 24px;
-  color: #1a1a1b;
+  color: #1a1b1a;
 }
 
-.music-section .song-name-container .song-artist {
-  color: #2a2b35;
+body #all-sections #middle-section .music-section .song-name-container .song-artist {
+  color: #2a3535;
 }
 
-.music-section .song-length-container div {
+body #all-sections #middle-section .music-section .song-length-container div {
   margin: 10px auto 0 auto;
   height: 10px;
   width: 250px;
-  background: #c2c2c9;
+  background: #a4fcde;
   border-radius: 3px;
 }
 
-.music-section .song-length-container div .bar {
+body #all-sections #middle-section .music-section .song-length-container div .bar {
   border-radius: 3px;
   margin: 0 0 0 -1px;
   height: 10px;
   width: 0px;
-  background: #49499e;
+  background: #499e8c;
 }
 
-.music-section .icons-container i {
-  color: #192d4b;
+body #all-sections #middle-section .music-section .icons-container i {
+  color: #194b2c;
   margin: 10px 10px 0 10px;
 }
 
-.music-section .icons-container .icon {
+body #all-sections #middle-section .music-section .icons-container .icon {
   font-size: 1.45em;
 }
 
-.music-section .icons-container .play-icon {
+body #all-sections #middle-section .music-section .icons-container .play-icon {
   font-size: 1.55em;
 }
 
-.music-section .icons-container .thumbsUp, .music-section .icons-container .thumbsDown {
+body #all-sections #middle-section .music-section .icons-container .thumbsUp, body #all-sections #middle-section .music-section .icons-container .thumbsDown {
   font-size: 1.15em;
   padding: 8px;
   border-radius: 50%;
@@ -68,19 +122,19 @@ body {
   transition: all .3s;
 }
 
-.music-section .icons-container .thumbsUp:hover, .music-section .icons-container .thumbsDown:hover {
-  background: rgba(25, 45, 75, 0.2);
+body #all-sections #middle-section .music-section .icons-container .thumbsUp:hover, body #all-sections #middle-section .music-section .icons-container .thumbsDown:hover {
+  background: rgba(25, 75, 52, 0.2);
 }
 
-.options-section {
-  margin-top: 6vw;
+body #all-sections #middle-section .options-section {
+  margin-top: 4em;
 }
 
-.options-section .options-container .option {
+body #all-sections #middle-section .options-section .options-container .option {
   margin-top: 5px;
 }
 
-.options-section .options-container .option h3 {
+body #all-sections #middle-section .options-section .options-container .option h3 {
   margin: 0 auto;
   width: 160px;
   text-align: center;
@@ -91,61 +145,68 @@ body {
   transition: all ease .7s;
 }
 
-.options-section .options-container .option h3:hover {
+body #all-sections #middle-section .options-section .options-container .option h3:hover {
   border-radius: 15px 0px;
-  background: #4970e6;
+  background: rgba(61, 187, 103, 0.5);
 }
 
-.options-section .options-container .option #songAuthorsUl {
-  width: 150px;
-  margin: 0 auto;
-  border-radius: 10px;
-}
-
-.options-section .options-container .option #songAuthorsUl li {
+body #all-sections #middle-section #songAuthorsUl {
+  padding-top: 2vh;
   pointer-events: none;
-  -webkit-transform: translateY(-90%);
-          transform: translateY(-90%);
   opacity: 0;
-  margin: 5px auto;
-  text-align: center;
-  color: white;
-  font-size: 17px;
+  -webkit-transform: translateY(-5%);
+          transform: translateY(-5%);
+  position: absolute;
+  background: #35925f;
+  height: 70%;
+  width: 80vw;
+  top: 0;
+  bottom: 7vh;
+  left: 0;
+  right: 0;
+  margin: auto;
+  border-radius: 10px;
+  -webkit-transition: all .5s;
+  transition: all .5s;
+}
+
+body #all-sections #middle-section #songAuthorsUl li {
   width: 120px;
   height: 20px;
   padding: 5px 10px;
+  margin: 5px auto;
+  text-align: center;
+  pointer-events: none;
+  color: white;
+  font-size: 17px;
   border-radius: 5px;
   -webkit-transition: all .5s;
   transition: all .5s;
 }
 
-.options-section .options-container .option #songAuthorsUl li:hover {
-  background: rgba(73, 73, 158, 0.5);
+body #all-sections #middle-section #songAuthorsUl li:hover {
+  background: #38704b;
 }
 
-@-webkit-keyframes transitionIn {
+@-webkit-keyframes shiftLeftSection {
   from {
-    opacity: 0;
-    -webkit-transform: translateY(-100%);
-            transform: translateY(-100%);
-  }
-  to {
-    opacity: 1;
     -webkit-transform: translateY(0%);
             transform: translateY(0%);
   }
+  to {
+    -webkit-transform: translateY(100%);
+            transform: translateY(100%);
+  }
 }
 
-@keyframes transitionIn {
+@keyframes shiftLeftSection {
   from {
-    opacity: 0;
-    -webkit-transform: translateY(-100%);
-            transform: translateY(-100%);
-  }
-  to {
-    opacity: 1;
     -webkit-transform: translateY(0%);
             transform: translateY(0%);
+  }
+  to {
+    -webkit-transform: translateY(100%);
+            transform: translateY(100%);
   }
 }
 

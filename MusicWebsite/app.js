@@ -204,6 +204,8 @@ var playing = false;
 var skip;
 var back;
 
+var changeSongOnCooldown;
+
 var randOrderButton;
 var songByArtistsButton;
 var songAuthorsUl;
@@ -214,6 +216,11 @@ var opened = false;
 
 var thumbsUp;
 var thumbsDown;
+
+
+//fix bug with the like/dislike buttons
+//set functionality that when a click is outside popup song-author selection the window closes;
+//make randomOrder button automatically selected on page load(startWebsite);
 
 let startWebsite = () => {
 
@@ -245,6 +252,13 @@ let startWebsite = () => {
         }
     });
 
+    changeSongOnCooldown = true;
+
+    setTimeout(() => {
+        changeSongOnCooldown = false;
+        console.log('false');
+    }, 1500);
+
     startingEventListeners();
 }
 
@@ -262,8 +276,10 @@ let grabComponents = () => {
     randOrderButton = document.querySelector('#randomOrder');
     songByArtistsButton = document.querySelector('#ulContainer').children[0];
 
-    thumbsUp = document.querySelector('.thumbsUp');
+    thumbsUp = document.querySelector('.fa-thumbs-up');
     thumbsDown = document.querySelector('.thumbsDown');
+
+    leftSectionList = document.getElementById('left-section').children[0];
 }
 
 let startingEventListeners = () => {
@@ -311,7 +327,7 @@ let checkThumbSelection = () => { //fix both selected glitch
 
     for (let i = 0; i < likedSongs.length; i++) {
         if (currentSong === likedSongs[i]){
-            thumbsUp.style.background = 'rgba(25, 45, 75, .2)';
+            thumbsUp.style.background = 'rgba(25, 75, 52, 0.2)';
             songLiked = true;
         }
     }
@@ -323,7 +339,7 @@ let checkThumbSelection = () => { //fix both selected glitch
 
     for (let d = 0; d < dislikedSongs.length; d++) {
         if(currentSong === dislikedSongs[d]){
-            thumbsDown.style.background = 'rgba(25, 45, 75, .2)';
+            thumbsDown.style.background = 'rgba(25, 75, 52, 0.2)';
             songDisliked = true;
         }
     }
@@ -334,7 +350,10 @@ let checkThumbSelection = () => { //fix both selected glitch
 }
 
 let thumbsUpClicked = () => { //i think spacing is done incorecctely
-    thumbsUp.style.background = 'rgba(25, 45, 75, .2)';
+
+    console.log("thumb-up");
+
+    thumbsUp.style.background = 'rgba(25, 75, 52, 0.2)';
     thumbsDown.style.background = '';
 
     var duplicate = false;
@@ -367,7 +386,7 @@ let thumbsUpClicked = () => { //i think spacing is done incorecctely
 }
 
 let thumbsDownClicked = () => {
-    thumbsDown.style.background = 'rgba(25, 45, 75, .2)';
+    thumbsDown.style.background = 'rgba(25, 75, 52, 0.2))';
     thumbsUp.style.background = '';
 
     var duplicate = false;
@@ -401,7 +420,7 @@ let thumbsDownClicked = () => {
 
 function subStationHoldSelection() {
     removeHoldSelectionStyles();
-    this.style.background = "rgba(73, 73, 158, .5)";
+    this.style.background = "rgba(53, 44, 26, 0.5)";
 }
 
 let removeHoldSelectionStyles = () => {
@@ -416,6 +435,12 @@ function clicked(){
         stationName = this.innerHTML;
         orderByAuthor(this.innerHTML);
         nextRandomSong(stationType);
+
+        setTimeout(() => {
+            songAuthorsUl.style.transform = 'translateY(-5%)';
+            songAuthorsUl.style.opacity = 0; 
+            opened = false;
+        }, 700);
     }
 }
 
@@ -427,10 +452,13 @@ let openStationChoices = (closeWindow) => {
 
             let style = songAuthorsUl.children[i].style;
 
-            style.opacity = 1; 
-            style.transform = 'translateY(0%)'; 
+            // style.opacity = 1; 
+            // style.transform = 'translateY(0%)'; 
             style.pointerEvents = 'all'; 
         }
+
+        songAuthorsUl.style.opacity = 1; 
+        songAuthorsUl.style.transform = 'translateY(0%)'; 
     }
 
     if(opened && closeWindow){
@@ -440,10 +468,20 @@ let openStationChoices = (closeWindow) => {
 
             let style = songAuthorsUl.children[i].style;
 
-            style.transform = 'translateY(-90%)'; 
-            style.opacity = 0; 
+            // style.transform = 'translateY(-90%)'; 
+            // style.opacity = 0; 
             style.pointerEvents = 'none'; 
         }
+
+        songAuthorsUl.style.transform = 'translateY(-5%)';
+        songAuthorsUl.style.opacity = 0;
+
+        // let style = songAuthorsUl.style;
+
+        // style.transform = 'translateY(-90%)'; 
+        // style.opacity = 0; 
+        // style.pointerEvents = 'none'; 
+        
     }
 }
 
@@ -467,12 +505,21 @@ function highlightOnClick(){
         option.children[0].style.borderRadius = '';   
     });
     
-    this.children[0].style.background = "rgb(73, 112, 230)";
+    this.children[0].style.background = "rgba(73, 158, 111, 0.5)";
     this.children[0].style.borderRadius = "15px 0px";
 }
 
 
 let nextRandomSong = (list) => {
+
+    if(changeSongOnCooldown) return;
+
+    changeSongOnCooldown = true;
+
+    setTimeout(() => {
+        changeSongOnCooldown = false;
+    }, 1500);
+
 
     audio.pause();
     audio.currentTime = 0;
@@ -500,11 +547,20 @@ let nextRandomSong = (list) => {
     setIconToPause();
 
     checkThumbSelection();
+
+    updateLeftSection();
 }
 
 let previousSong = () => {
-    console.log("Previous Song ID: " + previousSongs.length);
-    console.log(previousSongs);
+
+    if(changeSongOnCooldown) return;
+
+    changeSongOnCooldown = true;
+
+    setTimeout(() => {
+        changeSongOnCooldown = false;
+    }, 1500);
+
     if(previousSongs.length === 1){
         console.log("Return");
         return;
@@ -533,7 +589,84 @@ let setIconToPause = () => {
     }
 } 
 
-window.onload = startWebsite;
+let updateLeftSection = () => {
 
-//blaklksdjflkdjf
-//blah blah blah
+    let currentPrevSong = previousSongs[1];
+
+    if (previousSongs.length > 7) {
+        //remove bottom item
+
+        for (let i = 6; i < leftSectionList.children.length; i++) {
+
+            var childToDelete = leftSectionList.children[i];
+
+            childToDelete.style.opacity = 0;
+            childToDelete.style.transform = 'translateX(-100%)';
+        }
+
+        // leftSectionList.children[4].style.opacity = 0.6;
+        // leftSectionList.children[5].style.opacity = 0.4;
+
+        setTimeout(() => {
+            childToDelete.remove();
+        }, 1000);
+
+        leftSectionList.style.transition = 'all 0.8s';
+        leftSectionList.style.marginTop = '4.6vw';
+
+        setTimeout(() => {
+            createNewPrevElement(currentPrevSong);
+        }, 1000);
+
+    }
+
+    else{
+
+        //bump other songs down and fill top song.
+
+        leftSectionList.style.transition = 'all 0.8s';
+        leftSectionList.style.marginTop = '4.6vw';
+
+        if(previousSongs.length === 2){
+            createNewPrevElement(currentPrevSong);
+        }
+        else{
+            setTimeout(() => {
+                createNewPrevElement(currentPrevSong);
+            }, 680);
+        }
+
+        console.log('???' + previousSongs.length);
+    }
+}
+
+let createNewPrevElement = (currentPrevSong) => {
+
+
+    leftSectionList.style.transition = 'all 0s';
+    leftSectionList.style.marginTop = '0vw';
+
+    let prevSong = document.createElement('li');
+
+    let prevSongTitle = document.createElement('h2');
+    // prevSongTitle.innerHTML = previousSongs[1].name;
+    prevSongTitle.innerHTML = currentPrevSong.name;
+    prevSong.append(prevSongTitle);
+
+    let prevSongImage = document.createElement('img');
+    // prevSongImage.src = previousSongs[1].image;
+    prevSongImage.src = currentPrevSong.image;
+    prevSong.append(prevSongImage);
+
+    leftSectionList.prepend(prevSong);
+
+    prevSong.style.opacity = 0;
+    prevSong.style.transform = 'translateY(50%)';
+
+    setTimeout(() => {
+        prevSong.style.opacity = 1;
+        prevSong.style.transform = 'translateY(0%)';
+    }, 50);
+}
+
+window.onload = startWebsite;

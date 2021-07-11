@@ -10,50 +10,78 @@
         <script type="text/javascript" src="./app.js"></script>
         <link rel="stylesheet" href="./css/style.css">
     </head>
+
+    <header>
+        <h1>Transfigured Melodys</h1>
+    </header>
+
     <body>
-        <div class="music-section">
-            <div class="song-image-container">
-                <img src="" alt="" class="song-image">
-            </div>
 
-            <div class="song-name-container">
-                <h2 class="song-name"></h2>
-                <h3 class="song-artist"></h3>
+        <div id="all-sections">
+            <div id="left-section">
+                <ul />
             </div>
-
-            <div class="song-length-container">
+    
+            <div id="middle-section">
+                <div class="music-section">
+                    <div class="song-image-container">
+                        <img src="" alt="" class="song-image">
+                    </div>
+        
+                    <div class="song-name-container">
+                        <h2 class="song-name"></h2>
+                        <h3 class="song-artist"></h3>
+                    </div>
+        
+                    <div class="song-length-container">
+                        <div>
+                            <div class="bar"></div>
+                        </div>
+                    </div>
+        
+                    <div class="icons-container">
+                        <i class="fas fa-thumbs-down thumbsDown"></i>
+                        
+                        <i class="fas fa-backward icon"></i>
+        
+                        <i class="fas fa-play-circle play-icon"></i>
+        
+                        <i class="fas fa-forward icon"></i>
+        
+                        <i class="fas fa-thumbs-up thumbsUp"></i>
+                    </div>
+                </div>
+        
+        
+                <div class="options-section">
+        
+                    <div class="options-container">
+                        <div class="option" id="randomOrder">
+                            <h3>Random Order</h3>
+                        </div>
+                    </div>
+        
+                    <div class="options-container">
+                        <div class="option" id="ulContainer">
+                            <h3>Specific Artist</h3>
+        
+                            <!-- <ul id="songAuthorsUl">
+                                <li>Dean Lewis</li>
+                                <li>Imagine Dragons</li>
+                            </ul> -->
+                        </div>
+                    </div>
+                </div>
+        
                 <div>
-                    <div class="bar"></div>
-                </div>
-            </div>
-
-            <div class="icons-container">
-                <i class="fas fa-thumbs-down thumbsDown"></i>
-                <i class="fas fa-backward icon"></i>
-                <i class="fas fa-play-circle play-icon"></i>
-                <i class="fas fa-forward icon"></i>
-                <i class="fas fa-thumbs-up thumbsUp"></i>
-            </div>
-        </div>
-
-
-        <div class="options-section">
-
-            <div class="options-container">
-                <div class="option" id="randomOrder">
-                    <h3>Random Order</h3>
-                </div>
-            </div>
-
-            <div class="options-container">
-                <div class="option" id="ulContainer">
-                    <h3>Specific Artist</h3>
-
                     <ul id="songAuthorsUl">
                         <li>Dean Lewis</li>
                         <li>Imagine Dragons</li>
                     </ul>
                 </div>
+            </div>
+    
+            <div id="right-section">
             </div>
         </div>
     </body>

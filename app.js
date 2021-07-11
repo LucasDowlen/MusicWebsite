@@ -495,6 +495,8 @@ let orderByAuthor = (selectedAuthor) => {
             authorPlaylist.push(musicList[i]);
         }
     }
+    
+    if(authorPlaylist.length < 3) return console.log("Error: Selected Arthor does not have enough songs");
 
     stationType = authorPlaylist;
 }

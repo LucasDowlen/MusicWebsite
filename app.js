@@ -217,6 +217,8 @@ var opened = false;
 var thumbsUp;
 var thumbsDown;
 
+// var newChildrenArray = [];
+
 
 //fix bug with the like/dislike buttons
 //set functionality that when a click is outside popup song-author selection the window closes;
@@ -256,7 +258,6 @@ let startWebsite = () => {
 
     setTimeout(() => {
         changeSongOnCooldown = false;
-        console.log('false');
     }, 1500);
 
     startingEventListeners();
@@ -280,6 +281,8 @@ let grabComponents = () => {
     thumbsDown = document.querySelector('.thumbsDown');
 
     leftSectionList = document.getElementById('left-section').children[0];
+
+
 }
 
 let startingEventListeners = () => {
@@ -289,7 +292,7 @@ let startingEventListeners = () => {
 
     audio.addEventListener('ended', () => nextRandomSong(stationType));
 
-    back.addEventListener('click', previousSong);
+    back.addEventListener('click', () => {previousSong(1)});
 
     document.querySelectorAll('.option').forEach(item => item.addEventListener('click', highlightOnClick));
 
@@ -351,8 +354,6 @@ let checkThumbSelection = () => { //fix both selected glitch
 
 let thumbsUpClicked = () => { //i think spacing is done incorecctely
 
-    console.log("thumb-up");
-
     thumbsUp.style.background = 'rgba(25, 75, 52, 0.2)';
     thumbsDown.style.background = '';
 
@@ -371,17 +372,17 @@ let thumbsUpClicked = () => { //i think spacing is done incorecctely
     for (let d = 0; d < dislikedSongs.length; d++) {
         if(currentSong === dislikedSongs[d]){
 
-            console.log("Remove: " + dislikedSongs[d].name);
+            // console.log("Remove: " + dislikedSongs[d].name);
 
             dislikedSongs.splice(dislikedSongs[d], 1);
 
-            console.log("should remove from diliked id = " + d);
+            // console.log("should remove from diliked id = " + d);
         }
 
-        console.log("DislikedSongs: ");
-        console.log(dislikedSongs);
-        console.log("Liked Songs: ");
-        console.log(likedSongs);
+        // console.log("DislikedSongs: ");
+        // console.log(dislikedSongs);
+        // console.log("Liked Songs: ");
+        // console.log(likedSongs);
     }
 }
 
@@ -404,17 +405,17 @@ let thumbsDownClicked = () => {
     for (let i = 0; i < likedSongs.length; i++) {
         if(currentSong === likedSongs[i]){
 
-            console.log("Remove: " + likedSongs[i].name);
+            // console.log("Remove: " + likedSongs[i].name);
 
             likedSongs.splice(likedSongs[i], 1);
 
-            console.log("should remove from likedSongs id = " + i);
+            // console.log("should remove from likedSongs id = " + i);
         }
 
-        console.log("DislikedSongs: ");
-        console.log(dislikedSongs);
-        console.log("Liked Songs: ");
-        console.log(likedSongs);
+        // console.log("DislikedSongs: ");
+        // console.log(dislikedSongs);
+        // console.log("Liked Songs: ");
+        // console.log(likedSongs);
     }
 }
 
@@ -473,6 +474,7 @@ let openStationChoices = (closeWindow) => {
             style.pointerEvents = 'none'; 
         }
 
+        // songAuthorsUl.style.transform = 'translateY(-5%)';
         songAuthorsUl.style.transform = 'translateY(-5%)';
         songAuthorsUl.style.opacity = 0;
 
@@ -553,7 +555,7 @@ let nextRandomSong = (list) => {
     updateLeftSection();
 }
 
-let previousSong = () => {
+let previousSong = (numBack) => {
 
     if(changeSongOnCooldown) return;
 
@@ -568,14 +570,18 @@ let previousSong = () => {
         return;
     }
 
-    audio.src = previousSongs[1].song;
+    audio.src = previousSongs[numBack].song; //error here (undefined)
     audio.play();
 
-    songName.innerHTML = previousSongs[1].name;
-    songAuthor.innerHTML = previousSongs[1].author;
-    songImage.src = previousSongs[1].image;
+    songName.innerHTML = previousSongs[numBack].name;
+    songAuthor.innerHTML = previousSongs[numBack].author;
+    songImage.src = previousSongs[numBack].image;
 
-    previousSongs.shift();
+    for (let i = 0; i < numBack; i++) { //maybe make better way of doing this
+        previousSongs.shift();  
+    }
+
+    updateLeftSectionReverse(numBack);
 
     setIconToPause();
 }
@@ -604,20 +610,30 @@ let updateLeftSection = () => {
 
             childToDelete.style.opacity = 0;
             childToDelete.style.transform = 'translateX(-100%)';
+
+            setTimeout(() => {
+                childToDelete.remove(); //error here
+                // leftSectionList.removeChild(childToDelete);
+            }, 1000);
         }
 
         // leftSectionList.children[4].style.opacity = 0.6;
         // leftSectionList.children[5].style.opacity = 0.4;
 
-        setTimeout(() => {
-            childToDelete.remove();
-        }, 1000);
-
         leftSectionList.style.transition = 'all 0.8s';
-        leftSectionList.style.marginTop = '4.6vw';
+
+        if(window.innerWidth > 1400) {
+            leftSectionList.style.marginTop = '4.6vw';
+        }
+
+        else {
+            leftSectionList.style.marginTop = '5.6vw';
+        }
+
+        // console.log(window.innerWidth + " inner");
 
         setTimeout(() => {
-            createNewPrevElement(currentPrevSong);
+            createNewPrevElement(currentPrevSong, 1);
         }, 1000);
 
     }
@@ -627,26 +643,88 @@ let updateLeftSection = () => {
         //bump other songs down and fill top song.
 
         leftSectionList.style.transition = 'all 0.8s';
-        leftSectionList.style.marginTop = '4.6vw';
+        
+        
+        if(window.innerWidth > 1400) {
+            leftSectionList.style.marginTop = '4.6vw';
+        }
+        else {
+            leftSectionList.style.marginTop = '5.6vw';
+        }
 
         if(previousSongs.length === 2){
-            createNewPrevElement(currentPrevSong);
+            createNewPrevElement(currentPrevSong, 1);
         }
         else{
             setTimeout(() => {
-                createNewPrevElement(currentPrevSong);
+                createNewPrevElement(currentPrevSong, 1);
             }, 680);
         }
 
-        console.log('???' + previousSongs.length);
+        // console.log('???' + previousSongs.length);
     }
 }
 
-let createNewPrevElement = (currentPrevSong) => {
+let updateLeftSectionReverse = (numBack) => {
 
+    let iterations = numBack;
+    let shift;
 
-    leftSectionList.style.transition = 'all 0s';
-    leftSectionList.style.marginTop = '0vw';
+    var newChildrenArray = [];
+
+    for (let i = 0; i < iterations; i++) {
+        let child = leftSectionList.children[i];
+        
+        child.style.opacity = 0;
+        child.style.transform = 'translateX(-100%)';
+
+        if(previousSongs.length > 7 - i) { 
+            console.log("test " + (7 - i));
+            let newElementIndex = 8 - (iterations - i); //inverts but breaks...maybe not inverts...
+            console.log(newElementIndex + " Ind");
+            // createNewPrevElement(previousSongs[7 - i], -1); //reversing oreder ex: 5,4,3 needs to be 3,4,5
+            newChildrenArray.push(7 - i);
+        }
+
+        setTimeout(() => {
+            child.remove();
+            // leftSectionList.removeChild(child);
+
+            leftSectionList.style.transition = 'all 0s';
+            leftSectionList.style.marginTop = '0';
+        }, 800);
+    }
+
+    if(newChildrenArray.length !== 0) {
+
+        newChildrenArray.reverse();
+
+        for (let i = 0; i < newChildrenArray.length; i++) {
+            console.log(previousSongs[newChildrenArray[i]]);
+            createNewPrevElement(previousSongs[newChildrenArray[i]], -1);
+        }
+    }
+
+    if(leftSectionList.children.length === iterations) {
+        shift = 0;
+    }
+
+    else if(window.innerWidth > 1400) {
+        shift = 4.6 * iterations;
+    }
+    else {
+        shift = 5.6 * iterations;
+    }
+
+    leftSectionList.style.transition = 'all 0.8s';
+
+    shiftString = shift.toString();
+    shiftVW = -shiftString + 'vw';
+
+    leftSectionList.style.marginTop = shiftVW;
+}
+
+let createNewPrevElement = (currentPrevSong, direction) => {
 
     let prevSong = document.createElement('li');
 
@@ -660,10 +738,28 @@ let createNewPrevElement = (currentPrevSong) => {
     prevSongImage.src = currentPrevSong.image;
     prevSong.append(prevSongImage);
 
-    leftSectionList.prepend(prevSong);
-
     prevSong.style.opacity = 0;
-    prevSong.style.transform = 'translateY(50%)';
+
+    if(direction === 1){
+        leftSectionList.style.transition = 'all 0s';
+        leftSectionList.style.marginTop = '0vw';
+
+        prevSong.style.transform = 'translateY(50%)';
+        leftSectionList.prepend(prevSong);
+    }
+
+    else if (direction === -1) { //this direction can break!
+        prevSong.style.transform = 'translateY(50%)';
+        leftSectionList.append(prevSong);
+    }
+
+    prevSong.addEventListener('click', () => {
+
+        let i;
+        for (i = 0; prevSong !== leftSectionList.children[i]; i++);
+
+        previousSong(i + 1);
+    });
 
     setTimeout(() => {
         prevSong.style.opacity = 1;

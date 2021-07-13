@@ -6,6 +6,15 @@ $unusedColor: rgb(73, 112, 230);
     list-style-type: none;
     margin: 0;
     padding: 0;
+
+    //remove ability ability to highlight elements
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
 }
 
 header {
@@ -23,52 +32,15 @@ body{
 
     #all-sections{
 
-        display: flex;
+        // margin: 0 auto;
+        // display: flex;
 
-        div{
-            width: calc(100vw / 3);
-        }
+        // div{
+        //     width: calc(100vw / 3);
+        // }
 
         #left-section{
-
-
-            margin-top: 4vw;
-
-            ul{
-
-                // margin: 8vw 0 0 6vw;
-
-                margin-left: 6vw;
-
-                li{
-                    display: flex;
-
-                    // height: 4vw;
-                    padding: 0.5vw;
-                    width: 18vw;
-                    background: rgb(131, 209, 170);
-                    transition: all 0.8s;
-                    h2{
-                        padding: 1vw;
-                        font-size: 1.4vw;
-                        color: white;
-
-                        white-space: nowrap;
-                        width: 10.5vw;
-                        // height: 1.5vw;
-                        overflow: hidden;
-                        text-overflow: ellipsis;
-                    }
-
-                    img{
-
-                        margin: auto 0;
-
-                        width: 3vw;
-                        height: 3vw;
-                    }
-                }
-            }
+            display: none;
         }
     
         #middle-section{
@@ -310,5 +282,101 @@ body{
 
     100%{
         border-radius: 29% 47% 26% 49% / 37% 51% 20% 25%;
+    }
+}
+
+@media all and (min-width: 1000px){
+
+    body {
+        #all-sections{
+            #left-section{
+                
+                margin-left: 6vw;
+                display: block;
+                position: absolute;
+        
+                margin-top: -1.6vw;
+        
+                ul{
+                    // position: relative;
+                    // margin: 8vw 0 0 6vw;
+        
+                    margin-left: 6vw;
+        
+                    li{
+                        display: flex;
+        
+                        // height: 4vw;
+                        padding: 0.5vw;
+                        width: 26vw;
+                        background: rgb(131, 209, 170);
+                        transition: all 0.8s;
+                        h2{
+                            padding: 1vw;
+                            font-size: 2vw;
+                            // font-size: 1.4em;
+                            color: white;
+        
+                            white-space: nowrap;
+                            width: 16vw;
+                            // height: 1.5vw;
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                        }
+        
+                        img{
+        
+                            margin: auto 0;
+        
+                            width: 4.5vw;
+                            height: 4.5vw;
+                        }
+                    }
+                }
+            }
+
+            #middle-section{
+                .music-section, .options-section{
+                    margin-left: 30vw;
+                }
+            }
+        }
+    }
+}
+
+@media all and (min-width: 1400px) {
+    body {
+        #all-sections{
+            #left-section{
+                
+                margin-left: 0;
+
+                ul{
+                    // position: relative;
+                    // margin: 8vw 0 0 6vw;
+        
+                    li{
+                        width: 18vw;
+                        h2{
+                            font-size: 1.4vw;
+                            // font-size: 1.4em;
+                            width: 10.5vw;
+                            // height: 1.5vw;
+                        }
+        
+                        img{
+                            width: 3vw;
+                            height: 3vw;
+                        }
+                    }
+                }
+            }
+
+            #middle-section{
+                .music-section, .options-section{
+                    margin-left: 0vw;
+                }
+            }
+        }
     }
 }

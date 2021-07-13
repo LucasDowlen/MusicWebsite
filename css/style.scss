@@ -1,5 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Festive&display=swap');
-$unusedColor: rgb(73, 112, 230);
+// $unusedColor: rgb(73, 112, 230);
+
+$lighterVarient: rgb(41, 52, 85);
+$lighterVarientV2: rgb(37, 46, 75);
+
+// $darkVarient: rgb(18, 28, 58);
+
+$accentLight: rgb(111, 255, 233);
+$accentDark: rgb(91, 192, 190);
+$primary: rgb(58, 80, 107);
+$secondaryLight: rgb(28, 37, 65);
+$secondaryDark: rgb(11, 19, 43);
 
 *{
     cursor: default;
@@ -28,7 +39,8 @@ header {
 }
 
 body{
-    background: rgb(65, 207, 188);
+    // background: rgb(206, 106, 133);
+    background: $primary;
 
     #all-sections{
 
@@ -61,11 +73,14 @@ body{
                     .song-name{
                         padding: 10px 0 0 0;
                         font-size: 24px;
-                        color:rgb(26, 27, 26);
+                        // color:rgb(26, 27, 26);
+                        color: white;
                     }
                     
                     .song-artist{
-                        color:rgb(42, 53, 53);
+                        // color:rgb(42, 53, 53);
+                        // color: rgba(223, 242, 255, 0.6);
+                        color: $secondaryDark;
                     }
                 }
             
@@ -74,7 +89,8 @@ body{
                         margin: 10px auto 0 auto;
                         height: 10px;
                         width: 250px;
-                        background:rgb(164, 252, 222);
+                        // background:rgb(164, 252, 222);
+                        background: $accentLight;
                         border-radius: 3px;
             
                         .bar{
@@ -82,7 +98,8 @@ body{
                             margin: 0 0 0 -1px;
                             height: 10px;
                             width: 0px;
-                            background: rgb(73, 158, 140);
+                            // background: rgb(73, 158, 140);
+                            background: $accentDark;
                         }
                     }
                 }
@@ -90,7 +107,8 @@ body{
                 .icons-container{
             
                     i{
-                        color: rgb(25, 75, 44);
+                        // color: rgb(25, 75, 44);
+                        color: $secondaryLight;
                         margin: 10px 10px 0 10px;
                     }
             
@@ -110,7 +128,7 @@ body{
                     }
             
                     .thumbsUp:hover, .thumbsDown:hover{
-                        background: rgba(25, 75, 52, 0.2);
+                        background: rgba(91, 192, 190, 0.05);
                         // background: rgb(61, 121, 81);
                     }
                 }
@@ -130,7 +148,9 @@ body{
                             margin: 0 auto;
                             width: 160px;
                             text-align: center;
-                            color: rgb(241, 243, 247);
+                            // color: rgb(241, 243, 247);
+                            // color: $accentDark;
+                            color: white;
                             padding: 3px;
                             border-radius: 0px 15px;
                             transition: all ease .7s;
@@ -138,7 +158,8 @@ body{
             
                         h3:hover{
                             border-radius: 15px 0px;
-                            background: rgba(61, 187, 103, 0.5);
+                            // background: rgba(61, 187, 103, 0.5);
+                            background: $secondaryLight;
                             // background:rgba(73, 158, 111, 0.6);
                         }
             
@@ -184,7 +205,8 @@ body{
                 opacity: 0;
                 transform: translateY(-5%);
                 position: absolute;
-                background: rgb(53, 146, 95);
+                // background: rgb(53, 146, 95);
+                background: $lighterVarient;
                 height: 70%;
                 width: 80vw;
             
@@ -222,7 +244,8 @@ body{
                 li:hover{
                     // background:rgba(73, 73, 158, .5);
                     // background:rgba(53, 44, 26, 0.5);
-                    background: rgb(56, 112, 75);
+                    // background: rgb(56, 112, 75);
+                    background: $secondaryLight;
                 }
             }
         }
@@ -309,19 +332,37 @@ body{
                         // height: 4vw;
                         padding: 0.5vw;
                         width: 26vw;
-                        background: rgb(131, 209, 170);
+                        // background: rgb(131, 209, 170);
+                        background: $lighterVarient; //lighter color
                         transition: all 0.8s;
-                        h2{
-                            padding: 1vw;
-                            font-size: 2vw;
-                            // font-size: 1.4em;
-                            color: white;
-        
-                            white-space: nowrap;
-                            width: 16vw;
-                            // height: 1.5vw;
-                            overflow: hidden;
-                            text-overflow: ellipsis;
+
+                        div {
+
+                            display: flex;
+                            flex-direction: column;
+
+                            h2 {
+                                padding: 0.2vw 1vw 0 1vw;
+                                // font-size: 2vw;
+                                font-size: 1.4em;
+                                color: white;
+            
+                                white-space: nowrap;
+                                width: 10vw;
+                                // height: 1.5vw;
+                                overflow: hidden;
+                                text-overflow: ellipsis;
+                            }
+
+                            h3 {
+                                margin: 0 1vw;
+                                color: white;
+                                font-size: 1em;
+
+                                white-space: nowrap;
+                                overflow: hidden;
+                                text-overflow: ellipsis;
+                            }
                         }
         
                         img{
@@ -331,6 +372,31 @@ body{
                             width: 4.5vw;
                             height: 4.5vw;
                         }
+
+                        i{
+                            margin: auto 0 auto 5vw;
+                            font-size: 24px;
+                            // color: rgb(44, 95, 76);
+                            color: $accentDark;
+
+                            transition: all 0.3s;
+                        }
+
+                        span {
+                            margin: 2.6vw 0 0 18vw;
+                            position: absolute;
+                            color: white;
+                        }
+                    }
+
+                    li:hover > i{
+                        // color: rgb(33, 73, 58);
+                        color: $accentLight
+                    }
+
+                    li:hover {
+                        // background: rgb(125, 201, 163);
+                        background: $lighterVarientV2;
                     }
                 }
             }
@@ -357,16 +423,27 @@ body{
         
                     li{
                         width: 18vw;
-                        h2{
-                            font-size: 1.4vw;
-                            // font-size: 1.4em;
-                            width: 10.5vw;
-                            // height: 1.5vw;
+
+                        div{
+                            h2{
+                                font-size: 1.4vw;
+                                // font-size: 1.4em;
+                                width: 10.5vw;
+                                // height: 1.5vw;
+                            }
                         }
         
                         img{
                             width: 3vw;
                             height: 3vw;
+                        }
+
+                        i{
+                            margin: auto;
+                        }
+
+                        span{
+                            margin: 1.9vw 0 0 13vw;
                         }
                     }
                 }

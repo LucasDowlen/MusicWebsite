@@ -186,12 +186,13 @@ const musicList = [
 var authorPlaylist = [];
 
 var previousSongs = [];
+var previousSongsTime = [];
 
 var likedSongs = [];
 var dislikedSongs = [];
 
 var currentSong;
-var songAudioComponent;
+// var songAudioComponent;
 var songImage;
 var songAuthor;
 var songName;
@@ -264,7 +265,7 @@ let startWebsite = () => {
 }
 
 let grabComponents = () => {
-    songAudioComponent = document.querySelector('.song-audio');
+    // songAudioComponent = document.querySelector('.song-audio');
     songImage = document.querySelector('.song-image');
     songAuthorsUl = document.querySelector('#songAuthorsUl');
     songAuthor = document.querySelector('.song-artist');
@@ -330,7 +331,7 @@ let checkThumbSelection = () => { //fix both selected glitch
 
     for (let i = 0; i < likedSongs.length; i++) {
         if (currentSong === likedSongs[i]){
-            thumbsUp.style.background = 'rgba(25, 75, 52, 0.2)';
+            thumbsUp.style.background = 'rgb(91, 192, 190, 0.1)';
             songLiked = true;
         }
     }
@@ -342,7 +343,7 @@ let checkThumbSelection = () => { //fix both selected glitch
 
     for (let d = 0; d < dislikedSongs.length; d++) {
         if(currentSong === dislikedSongs[d]){
-            thumbsDown.style.background = 'rgba(25, 75, 52, 0.2)';
+            thumbsDown.style.background = 'rgb(91, 192, 190, 0.1)';
             songDisliked = true;
         }
     }
@@ -354,7 +355,7 @@ let checkThumbSelection = () => { //fix both selected glitch
 
 let thumbsUpClicked = () => { //i think spacing is done incorecctely
 
-    thumbsUp.style.background = 'rgba(25, 75, 52, 0.2)';
+    thumbsUp.style.background = 'rgb(91, 192, 190, 0.1)';
     thumbsDown.style.background = '';
 
     var duplicate = false;
@@ -387,7 +388,7 @@ let thumbsUpClicked = () => { //i think spacing is done incorecctely
 }
 
 let thumbsDownClicked = () => {
-    thumbsDown.style.background = 'rgba(25, 75, 52, 0.2))';
+    thumbsDown.style.background = 'rgb(91, 192, 190, 0.1)';
     thumbsUp.style.background = '';
 
     var duplicate = false;
@@ -421,7 +422,7 @@ let thumbsDownClicked = () => {
 
 function subStationHoldSelection() {
     removeHoldSelectionStyles();
-    this.style.background = "rgba(53, 44, 26, 0.5)";
+    this.style.background = "rgba(11, 19, 43)";
 }
 
 let removeHoldSelectionStyles = () => {
@@ -509,7 +510,7 @@ function highlightOnClick(){
         option.children[0].style.borderRadius = '';   
     });
     
-    this.children[0].style.background = "rgba(73, 158, 111, 0.5)";
+    this.children[0].style.background = "rgb(28, 37, 65)";
     this.children[0].style.borderRadius = "15px 0px";
 }
 
@@ -540,6 +541,7 @@ let nextRandomSong = (list) => {
 
     audio.src = list[randNumber].song;
     audio.play();
+
     previousSongs.unshift(list[randNumber]);
 
     if(previousSongs.length > 20) previousSongs.pop();
@@ -547,7 +549,6 @@ let nextRandomSong = (list) => {
     songName.innerHTML = list[randNumber].name;
     songAuthor.innerHTML = list[randNumber].author;
     songImage.src = list[randNumber].image;
-
     setIconToPause();
 
     checkThumbSelection();
@@ -599,7 +600,7 @@ let setIconToPause = () => {
 
 let updateLeftSection = () => {
 
-    let currentPrevSong = previousSongs[1];
+    // let currentPrevSong = previousSongs[1];
 
     if (previousSongs.length > 7) {
         //remove bottom item
@@ -623,17 +624,17 @@ let updateLeftSection = () => {
         leftSectionList.style.transition = 'all 0.8s';
 
         if(window.innerWidth > 1400) {
-            leftSectionList.style.marginTop = '4.6vw';
+            leftSectionList.style.marginTop = '4vw';
         }
 
         else {
-            leftSectionList.style.marginTop = '5.6vw';
+            leftSectionList.style.marginTop = '5vw';
         }
 
         // console.log(window.innerWidth + " inner");
 
         setTimeout(() => {
-            createNewPrevElement(currentPrevSong, 1);
+            createNewPrevElement(1, 1);
         }, 1000);
 
     }
@@ -646,18 +647,20 @@ let updateLeftSection = () => {
         
         
         if(window.innerWidth > 1400) {
-            leftSectionList.style.marginTop = '4.6vw';
+            leftSectionList.style.marginTop = '4vw';
         }
         else {
-            leftSectionList.style.marginTop = '5.6vw';
+            leftSectionList.style.marginTop = '5vw';
         }
 
         if(previousSongs.length === 2){
-            createNewPrevElement(currentPrevSong, 1);
+            setTimeout(() => {
+                createNewPrevElement(1, 1);
+            }, 50);
         }
         else{
             setTimeout(() => {
-                createNewPrevElement(currentPrevSong, 1);
+                createNewPrevElement(1, 1);
             }, 680);
         }
 
@@ -701,7 +704,7 @@ let updateLeftSectionReverse = (numBack) => {
 
         for (let i = 0; i < newChildrenArray.length; i++) {
             console.log(previousSongs[newChildrenArray[i]]);
-            createNewPrevElement(previousSongs[newChildrenArray[i]], -1);
+            createNewPrevElement(newChildrenArray[i], -1);
         }
     }
 
@@ -710,10 +713,10 @@ let updateLeftSectionReverse = (numBack) => {
     }
 
     else if(window.innerWidth > 1400) {
-        shift = 4.6 * iterations;
+        shift = 4 * iterations;
     }
     else {
-        shift = 5.6 * iterations;
+        shift = 5 * iterations;
     }
 
     leftSectionList.style.transition = 'all 0.8s';
@@ -724,23 +727,39 @@ let updateLeftSectionReverse = (numBack) => {
     leftSectionList.style.marginTop = shiftVW;
 }
 
-let createNewPrevElement = (currentPrevSong, direction) => {
+let createNewPrevElement = (currentPrevSongIndex, direction) => {
+
+    let minutes;
+    let seconds;
+
+    let currentPrevSong = previousSongs[currentPrevSongIndex];
 
     let prevSong = document.createElement('li');
-
-    let prevSongTitle = document.createElement('h2');
-    // prevSongTitle.innerHTML = previousSongs[1].name;
-    prevSongTitle.innerHTML = currentPrevSong.name;
-    prevSong.append(prevSongTitle);
 
     let prevSongImage = document.createElement('img');
     // prevSongImage.src = previousSongs[1].image;
     prevSongImage.src = currentPrevSong.image;
     prevSong.append(prevSongImage);
 
-    prevSong.style.opacity = 0;
+    let prevSongNames = document.createElement('div');
+    prevSong.append(prevSongNames);
+
+    let prevSongTitle = document.createElement('h2');
+    // prevSongTitle.innerHTML = previousSongs[1].name;
+    prevSongTitle.innerHTML = currentPrevSong.name;
+    prevSongNames.append(prevSongTitle);
+
+    let prevSongAuthor = document.createElement('h3');
+    // prevSongTitle.innerHTML = previousSongs[1].name;
+    prevSongAuthor.innerHTML = currentPrevSong.author;
+    prevSongNames.append(prevSongAuthor);
 
     if(direction === 1){
+
+        minutes = Math.floor(audio.duration / 60);
+        seconds = Math.floor(audio.duration - (minutes * 60));
+        previousSongsTime.unshift(audio.duration);
+
         leftSectionList.style.transition = 'all 0s';
         leftSectionList.style.marginTop = '0vw';
 
@@ -748,10 +767,38 @@ let createNewPrevElement = (currentPrevSong, direction) => {
         leftSectionList.prepend(prevSong);
     }
 
-    else if (direction === -1) { //this direction can break!
+    else if (direction === -1) {
+
+        minutes = Math.floor(previousSongsTime[7] / 60);
+        seconds = Math.floor(previousSongsTime[7] - (minutes * 60));
+    
         prevSong.style.transform = 'translateY(50%)';
         leftSectionList.append(prevSong);
     }
+
+    minutes.toString();
+
+    if(seconds < 10) {
+        seconds = "0" + seconds.toString();
+    }
+
+    else{
+        seconds.toString();
+    }
+
+    let time = `${minutes}:${seconds}`
+
+    let duration = document.createElement('span');
+    duration.innerHTML = time;
+    prevSong.append(duration);
+
+    let playButton = document.createElement('i');
+    playButton.className = "far fa-play-circle";
+    prevSong.append(playButton);
+
+    prevSong.style.opacity = 0;
+
+    console.log(audio.duration);
 
     prevSong.addEventListener('click', () => {
 
@@ -768,5 +815,3 @@ let createNewPrevElement = (currentPrevSong, direction) => {
 }
 
 window.onload = startWebsite;
-
-//new comment (test)

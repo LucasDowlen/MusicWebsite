@@ -27,7 +27,7 @@ header h1 {
 }
 
 body {
-  background: #41cfbc;
+  background: #3a506b;
 }
 
 body #all-sections #left-section {
@@ -49,18 +49,18 @@ body #all-sections #middle-section .music-section .song-image-container .song-im
 body #all-sections #middle-section .music-section .song-name-container .song-name {
   padding: 10px 0 0 0;
   font-size: 24px;
-  color: #1a1b1a;
+  color: white;
 }
 
 body #all-sections #middle-section .music-section .song-name-container .song-artist {
-  color: #2a3535;
+  color: #0b132b;
 }
 
 body #all-sections #middle-section .music-section .song-length-container div {
   margin: 10px auto 0 auto;
   height: 10px;
   width: 250px;
-  background: #a4fcde;
+  background: #6fffe9;
   border-radius: 3px;
 }
 
@@ -69,11 +69,11 @@ body #all-sections #middle-section .music-section .song-length-container div .ba
   margin: 0 0 0 -1px;
   height: 10px;
   width: 0px;
-  background: #499e8c;
+  background: #5bc0be;
 }
 
 body #all-sections #middle-section .music-section .icons-container i {
-  color: #194b2c;
+  color: #1c2541;
   margin: 10px 10px 0 10px;
 }
 
@@ -94,7 +94,7 @@ body #all-sections #middle-section .music-section .icons-container .thumbsUp, bo
 }
 
 body #all-sections #middle-section .music-section .icons-container .thumbsUp:hover, body #all-sections #middle-section .music-section .icons-container .thumbsDown:hover {
-  background: rgba(25, 75, 52, 0.2);
+  background: rgba(91, 192, 190, 0.05);
 }
 
 body #all-sections #middle-section .options-section {
@@ -109,7 +109,7 @@ body #all-sections #middle-section .options-section .options-container .option h
   margin: 0 auto;
   width: 160px;
   text-align: center;
-  color: #f1f3f7;
+  color: white;
   padding: 3px;
   border-radius: 0px 15px;
   -webkit-transition: all ease .7s;
@@ -118,7 +118,7 @@ body #all-sections #middle-section .options-section .options-container .option h
 
 body #all-sections #middle-section .options-section .options-container .option h3:hover {
   border-radius: 15px 0px;
-  background: rgba(61, 187, 103, 0.5);
+  background: #1c2541;
 }
 
 body #all-sections #middle-section #songAuthorsUl {
@@ -128,7 +128,7 @@ body #all-sections #middle-section #songAuthorsUl {
   -webkit-transform: translateY(-5%);
           transform: translateY(-5%);
   position: absolute;
-  background: #35925f;
+  background: #293455;
   height: 70%;
   width: 80vw;
   top: 0;
@@ -156,7 +156,7 @@ body #all-sections #middle-section #songAuthorsUl li {
 }
 
 body #all-sections #middle-section #songAuthorsUl li:hover {
-  background: #38704b;
+  background: #1c2541;
 }
 
 @-webkit-keyframes shiftLeftSection {
@@ -269,16 +269,33 @@ body #all-sections #middle-section #songAuthorsUl li:hover {
     display: flex;
     padding: 0.5vw;
     width: 26vw;
-    background: #83d1aa;
+    background: #293455;
     -webkit-transition: all 0.8s;
     transition: all 0.8s;
   }
-  body #all-sections #left-section ul li h2 {
-    padding: 1vw;
-    font-size: 2vw;
+  body #all-sections #left-section ul li div {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  body #all-sections #left-section ul li div h2 {
+    padding: 0.2vw 1vw 0 1vw;
+    font-size: 1.4em;
     color: white;
     white-space: nowrap;
-    width: 16vw;
+    width: 10vw;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  body #all-sections #left-section ul li div h3 {
+    margin: 0 1vw;
+    color: white;
+    font-size: 1em;
+    white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
   }
@@ -286,6 +303,24 @@ body #all-sections #middle-section #songAuthorsUl li:hover {
     margin: auto 0;
     width: 4.5vw;
     height: 4.5vw;
+  }
+  body #all-sections #left-section ul li i {
+    margin: auto 0 auto 5vw;
+    font-size: 24px;
+    color: #5bc0be;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+  }
+  body #all-sections #left-section ul li span {
+    margin: 2.6vw 0 0 18vw;
+    position: absolute;
+    color: white;
+  }
+  body #all-sections #left-section ul li:hover > i {
+    color: #6fffe9;
+  }
+  body #all-sections #left-section ul li:hover {
+    background: #252e4b;
   }
   body #all-sections #middle-section .music-section, body #all-sections #middle-section .options-section {
     margin-left: 30vw;
@@ -299,13 +334,19 @@ body #all-sections #middle-section #songAuthorsUl li:hover {
   body #all-sections #left-section ul li {
     width: 18vw;
   }
-  body #all-sections #left-section ul li h2 {
+  body #all-sections #left-section ul li div h2 {
     font-size: 1.4vw;
     width: 10.5vw;
   }
   body #all-sections #left-section ul li img {
     width: 3vw;
     height: 3vw;
+  }
+  body #all-sections #left-section ul li i {
+    margin: auto;
+  }
+  body #all-sections #left-section ul li span {
+    margin: 1.9vw 0 0 13vw;
   }
   body #all-sections #middle-section .music-section, body #all-sections #middle-section .options-section {
     margin-left: 0vw;

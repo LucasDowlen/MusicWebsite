@@ -2,182 +2,182 @@ const musicList = [
 
     {
         song: "./songs/Imagine-Dragons-Bad-Liar.mp3",
-        image: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fmedia.deseretdigital.com%2Ffile%2F1158ef5291%3Fresize%3Dwidth_1200%26type%3Djpg%26c%3D21%26a%3De0717f4c&f=1&nofb=1",
+        image: "./images/Origins.jpg",
         name: "Bad Liar",
         author: "Imagine Dragons"
     },
 
     {
         song: "./songs/Imagine-Dragons-Demons.mp3",
-        image: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.pinimg.com%2Foriginals%2F34%2Fca%2F78%2F34ca78256ed5d7e4c73c0b5779d09c3c.jpg&f=1&nofb=1",
+        image: "./images/NightVisions.jpg",
         name: "Demons",
         author: "Imagine Dragons"
     },
 
     {
         song: "./songs/Imagine-Dragons-Thunder.mp3",
-        image: "https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fimages.genius.com%2F86e0d33ebe09cafa4e686ad0f38dc3df.1000x1000x1.jpg&f=1&nofb=1",
+        image: "./images/Thunder.jpg",
         name: "Thunder",
         author: "Imagine Dragons"
     },
 
     {
         song: "./songs/Amsterdam-ImagineDragons.mp3",
-        image: "https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fvol12.music-bazaar.com%2Falbum-images%2Fvol12%2F612%2F612173%2F2455908-big%2FNight-Visions-Best-Buy-Exclusive-Edition-cover.jpg&f=1&nofb=1",
+        image: "./images/NightVisions.jpg",
         name: "Amsterdam",
         author: "Imagine Dragons"
     },
 
     {
         song: "./songs/Gold-ImagineDragons.mp3",
-        image: "https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fstatic.idolator.com%2Fuploads%2F2014%2F12%2FImagine-Dragons-Smoke-%252B-Mirrors-album-cover.jpg&f=1&nofb=1",
+        image: "./images/SmokeMirrors.jpg",
         name: "Gold",
         author: "Imagine Dragons"
     },
 
     {
         song: "./songs/NightVisions-ImagineDragons.mp3", //This is actually just a trailer, fix it!
-        image: "https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fvol12.music-bazaar.com%2Falbum-images%2Fvol12%2F612%2F612173%2F2455908-big%2FNight-Visions-Best-Buy-Exclusive-Edition-cover.jpg&f=1&nofb=1",
+        image: "./images/NightVisions.jpg",
         name: "Night Visions",
         author: "Imagine Dragons"
     },
 
     {
         song: "./songs/OnTopOfTheWorld-ImagineDragons.mp3",
-        image: "https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Ffarm9.staticflickr.com%2F8500%2F8323918886_1354132e2e_z.jpg&f=1&nofb=1",
+        image: "./images/OnTopOfTheWorld.jpg",
         name: "On Top Of The World",
         author: "Imagine Dragons"
     },
 
     {
         song: "./songs/Shots-ImagineDragons.mp3",
-        image: "https://upload.wikimedia.org/wikipedia/en/7/7d/Imagine_Dragons_-_Shots.png",
+        image: "./images/Shots.jpg",
         name: "Shots",
         author: "Imagine Dragons"
     },
 
     {
         song: "./songs/Zero-ImagineDragons.mp3",
-        image: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fmedia.deseretdigital.com%2Ffile%2F1158ef5291%3Fresize%3Dwidth_1200%26type%3Djpg%26c%3D21%26a%3De0717f4c&f=1&nofb=1",
+        image: "./images/Origins.jpg",
         name: "Zero",
         author: "Imagine Dragons"
     },
 
     {
         song: "./songs/BattleCry-ImagineDragons.mp3", //change image from here down for Imagine Dragons Songs.
-        image: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fmedia.deseretdigital.com%2Ffile%2F1158ef5291%3Fresize%3Dwidth_1200%26type%3Djpg%26c%3D21%26a%3De0717f4c&f=1&nofb=1",
+        image: "./images/SmokeMirrors.jpg",
         name: "BattleCry",
         author: "Imagine Dragons"
     },
 
     {
         song: "./songs/Friction-ImagineDragons.mp3",
-        image: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fmedia.deseretdigital.com%2Ffile%2F1158ef5291%3Fresize%3Dwidth_1200%26type%3Djpg%26c%3D21%26a%3De0717f4c&f=1&nofb=1",
+        image: "./images/SmokeMirrors.jpg",
         name: "Friction",
         author: "Imagine Dragons"
     },
 
     {
         song: "./songs/HearMe-ImagineDragons.mp3",
-        image: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fmedia.deseretdigital.com%2Ffile%2F1158ef5291%3Fresize%3Dwidth_1200%26type%3Djpg%26c%3D21%26a%3De0717f4c&f=1&nofb=1",
+        image: "./images/HearMe.jpg",
         name: "Hear Me",
         author: "Imagine Dragons"
     },
     
     {
         song: "./songs/HopelessOpus-ImagineDragons.mp3",
-        image: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fmedia.deseretdigital.com%2Ffile%2F1158ef5291%3Fresize%3Dwidth_1200%26type%3Djpg%26c%3D21%26a%3De0717f4c&f=1&nofb=1",
+        image: "./images/HopelessOpus.jpg",
         name: "Hopeless Opus",
         author: "Imagine Dragons"
     },
 
     {
         song: "./songs/IDontKnowWhy-ImagineDragons.mp3",
-        image: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fmedia.deseretdigital.com%2Ffile%2F1158ef5291%3Fresize%3Dwidth_1200%26type%3Djpg%26c%3D21%26a%3De0717f4c&f=1&nofb=1",
+        image: "./images/Evolve.jpg",
         name: "I Don't Know Why",
         author: "Imagine Dragons"
     },
 
     {
         song: "./songs/ItsTime-ImagineDragons.mp3",
-        image: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fmedia.deseretdigital.com%2Ffile%2F1158ef5291%3Fresize%3Dwidth_1200%26type%3Djpg%26c%3D21%26a%3De0717f4c&f=1&nofb=1",
+        image: "./images/ItsTime.jpg",
         name: "It's Time",
         author: "Imagine Dragons"
     },
 
     {
         song: "./songs/Levitate-ImagineDragons.mp3",
-        image: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fmedia.deseretdigital.com%2Ffile%2F1158ef5291%3Fresize%3Dwidth_1200%26type%3Djpg%26c%3D21%26a%3De0717f4c&f=1&nofb=1",
+        image: "./images/Evolve.jpg",
         name: "Levitate",
         author: "Imagine Dragons"
     },
 
     {
         song: "./songs/Monster-ImagineDragons.mp3",
-        image: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fmedia.deseretdigital.com%2Ffile%2F1158ef5291%3Fresize%3Dwidth_1200%26type%3Djpg%26c%3D21%26a%3De0717f4c&f=1&nofb=1",
+        image: "./images/SmokeMirrors.jpg",
         name: "Monster",
         author: "Imagine Dragons"
     },
 
     {
         song: "./songs/Roots-ImagineDragons.mp3",
-        image: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fmedia.deseretdigital.com%2Ffile%2F1158ef5291%3Fresize%3Dwidth_1200%26type%3Djpg%26c%3D21%26a%3De0717f4c&f=1&nofb=1",
+        image: "./images/Roots.jpg",
         name: "Roots",
         author: "Imagine Dragons"
     },
 
     {
         song: "./songs/StartOver-ImagineDragons.mp3",
-        image: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fmedia.deseretdigital.com%2Ffile%2F1158ef5291%3Fresize%3Dwidth_1200%26type%3Djpg%26c%3D21%26a%3De0717f4c&f=1&nofb=1",
+        image: "./images/StartOver.jpg",
         name: "Start Over",
         author: "Imagine Dragons"
     },
 
     {
         song: "./songs/WalkingTheWire-ImagineDragons.mp3",
-        image: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fmedia.deseretdigital.com%2Ffile%2F1158ef5291%3Fresize%3Dwidth_1200%26type%3Djpg%26c%3D21%26a%3De0717f4c&f=1&nofb=1",
+        image: "./images/Evolve.jpg",
         name: "Walking The Wire",
         author: "Imagine Dragons"
     },
 
     {
         song: "./songs/Warriors-ImagineDragons.mp3",
-        image: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fmedia.deseretdigital.com%2Ffile%2F1158ef5291%3Fresize%3Dwidth_1200%26type%3Djpg%26c%3D21%26a%3De0717f4c&f=1&nofb=1",
+        image: "./images/Warriors.jpg",
         name: "Warriors",
         author: "Imagine Dragons"
     },
 
     {
         song: "./songs/Dean-Lewis-Waves.mp3",
-        image: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimages.genius.com%2Fac3dfa8421c0500dbc07c386399c7765.1000x1000x1.jpg&f=1&nofb=1",
+        image: "./images/Waves.jpg",
         name: "Waves",
         author: "Dean Lewis"
     },
 
     {
         song: "./songs/Dean-Lewis-Half-A-Man.mp3",
-        image: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fstatic.raru.co.za%2Fcover%2F2019%2F02%2F25%2F7184789-l.jpg%3Fv%3D1551049200&f=1&nofb=1",
+        image: "./images/HalfAMan.jpg",
         name: "Half A Man",
         author: "Dean Lewis"
     },
 
     {
         song: "./songs/Dean-Lewis-For-The-Last-Time.mp3",
-        image: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fstatic.raru.co.za%2Fcover%2F2019%2F02%2F25%2F7184789-l.jpg%3Fv%3D1551049200&f=1&nofb=1",
+        image: "./images/HalfAMan.jpg",
         name: "For The Last Time",
         author: "Dean Lewis"
     },
 
     {
         song: "./songs/Dean-Lewis-Stay-Awake.mp3",
-        image: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimg.discogs.com%2FeRdMPYTDBNGs249jaXSdYBdFR6U%3D%2Ffit-in%2F300x300%2Ffilters%3Astrip_icc()%3Aformat(jpeg)%3Amode_rgb()%3Aquality(40)%2Fdiscogs-images%2FR-12531502-1537097487-9318.jpeg.jpg&f=1&nofb=1h",
+        image: "./images/HalfAMan.jpg",
         name: "Stay Awake",
         author: "Dean Lewis"
     },
 
     {
         song: "./songs/Dean-Lewis-A-Place-We-Knew.mp3",
-        image: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fstatic.raru.co.za%2Fcover%2F2019%2F02%2F25%2F7184789-l.jpg%3Fv%3D1551049200&f=1&nofb=1",
+        image: "./images/APlaceWeKnew.jpg",
         name: "A Place We Knew",
         author: "Dean Lewis"
     }
